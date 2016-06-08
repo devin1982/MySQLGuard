@@ -79,10 +79,9 @@ def filterPstat(request):
             if etime is None:
                 stime=request.session.get('stime')
                 etime=request.session.get('etime')
-        if stime == '':
-            if etime == '':
-                stime=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()-86400))
-                etime=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+        if stime == '' or etime == '':
+            stime=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()-86400))
+            etime=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
         hostList = Pstat.objects.all().values('dhost').distinct()
         if host == '':
             result = Pstat.objects.filter(create_time__gte=str(stime)).filter(create_time__lte=str(etime)).order_by('-create_time')
