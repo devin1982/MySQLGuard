@@ -68,9 +68,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_monitor',
-        'USER':'monitor',
-        'PASSWORD':'fs2134',
-        'HOST':'120.24.214.169',
+        'USER':'',
+        'PASSWORD':'',
+        'HOST':'',
         'PORT':'3306',
     }
 }      
